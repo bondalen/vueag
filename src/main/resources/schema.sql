@@ -1,4 +1,4 @@
-CREATE TABLE students.dbo.tutorial (
+IF NOT EXISTS (SELECT * FROM students.sys.tables WHERE name = 'tutorial')CREATE TABLE students.dbo.tutorial (
 	id int IDENTITY(1,1) NOT NULL,
 	title varchar(255) NULL,
 	description varchar(255) NULL,

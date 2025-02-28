@@ -34,10 +34,25 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-r2dbc</artifactId>
 		</dependency>
+
+		<!-- поменяю встроенный сервер для обслуживания HTTP-запросов с Netty на Apache Tomcat -->
+		<!-- вот как здесь: https://hantsy.github.io/spring-reactive-sample/start/boot-first.html -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-boot-starter-reactor-netty</artifactId>
+					<groupId>org.springframework.boot</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+		</dependency>
+		<!-- вот до этого места -->
 
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
